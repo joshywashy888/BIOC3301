@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+#SBATCH --reservation=cbmucl
+#Load modules to run python
+module load eb
+module load Miniconda2
+source deactivate
+# loading virtualenv
+echo "loading virtualenv"
+source activate qiime1
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+#joining ends
+join_paired_ends.py 
+-f Read1.fastq.gz 
+-r Read2.fastq.gz 
+-o joined_ends
+
+echo "splitting"
+split_libraries_fastq.py -m map_incomplete.tsv -i joined_ends/fastqjoin.join.fastq -b joined_ends/fastqjoin.join_barcodes.fastq -o ./slout2 -q 19 --rev_comp_barcode --rev_comp_mapping_barcodes
+
+echo "Counting sequences"
+time count_seqs.py -i slout2/seqs.fna
+
+echo "Picking OTUs with open reference using Greengages"
+time pick_open_reference_otus.py -i slout2/seqs.fna -o otus4 -a -O 24 -s 0.1 

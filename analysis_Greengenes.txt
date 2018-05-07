@@ -1,0 +1,12 @@
+core_diversity_analyses.py \ --recover_from_failure -o cdout4 -i otus2/otu_table_mc2_w_tax.biom -m map_incomplete.tsv -t otus3/rep_set.tre -e 770 -a
+
+summarize_taxa.py -i otus2/otu_table_mc2_w_tax_no_pynast_failures.biom -o ./summarize_taxa_2 -L 2 -u 0.01
+
+plot_taxa_summary.py -i taxa_comparison_detailed_2/otu_table_mc2_w_tax_no_pynast_failures_L2_sorted_and_filled_0.txt -l phylum -c pie,bar,area -o phylum_charts
+
+compare_alpha_diversity.py -i cdout4/arare_max770/alpha_div_collated/PD_whole_tree.txt -d 100 -m map_incomplete_L2.tsv.txt -c SampleID -o alphagreen2
+
+compute_core_microbiome.py -i otus2/otu_table_mc2_w_tax_no_pynast_failures.biom -o otus2/otu_table_core_fast --mapping_fp map_incomplete.tsv --valid_states --min_fraction_for_core :0.1
+
+compare_taxa_summaries.py -i summarize_taxa_2/otu_table_mc2_w_tax_no_pynast_failures_L2.txt,summarize_taxa_2/otu_table_mc2_w_tax_no_pynast_failures_L2.txt -m paired -o taxa_comparison_low -c spearman -t low
+
