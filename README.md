@@ -29,7 +29,7 @@ The secondary script (analysis_SILVA) is the script for analysing the data outpu
 
 ## Mapping file
 
-An example mapping file cna be found [here](https://docs.google.com/spreadsheets/d/1crHkjeUj1hfKZ5NhGzcB75cB8p0CME2SNuo0kaUDmNg/edit#gid=0). The file must contain atleast a sample ID and a barcode sequence for identificatin of the Illumina reads.
+An example mapping file can be found [here](https://docs.google.com/spreadsheets/d/1crHkjeUj1hfKZ5NhGzcB75cB8p0CME2SNuo0kaUDmNg/edit#gid=0). The file must contain atleast a sample ID and a barcode sequence for identificatin of the Illumina reads.
 
 ## Contributors
 
