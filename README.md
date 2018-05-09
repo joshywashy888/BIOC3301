@@ -1,24 +1,23 @@
 # **BIOC3301: Analysis of 16S rRNA reads**
 
-The following repository contains the four bash scripts used to analyse 16S rRNA reads using Qiime v1.9.1. My scripts were used to compare the differences in taxonomic assignment between Greengenes asd SILVA as the reference database, however individual elements can be taken and run independently :+1:
+The following repository contains the four bash scripts used to analyse 16S rRNA reads using Qiime v1.9.1 on a HPC. My scripts were used to compare the differences in taxonomic assignment between Greengenes asd SILVA as the reference database, however individual elements can be taken and run independently :+1:
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. Minicoinda 2 is required to run the Qiime environment, details on installation can be found here: http://qiime.org/install/install.html . The scrips will only work with Qiime 1 so be ensure to only activate the Qiime1 environment.
-
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. Minicoinda 2 is required to run the Qiime environment, details on installation can be found here: http://qiime.org/install/install.html . The scrips will only work with Qiime 1 so be ensure to only activate the Qiime1 environment. 
 
 
 ## The Scripts
 
-There are four scripts, two for the use with Greengenes and two for SILVA. When running the scripts, it is important to ensure you are in the correct working directory and all file paths are correct. **My file paths will not be tha same as yours**
+There are four scripts, two for the use with Greengenes and two for SILVA. When running the scripts, it is important to ensure you are in the correct working directory and all file paths are correct. **My file paths will not be the same as yours**
 
 **Greengenes**
 
 There are two scripts for using Greengeens as the reference database
 
-The first (Greengenes_open_OTU) processes and then assigns taxonomies to the OTUs. The script can be run as one as all output files are required.
+The first (Greengenes_open_OTU) processes and then assigns taxonomies to the OTUs. The script can be run as one as all output files are required. The script is set to run paralell cores so if running on a local machine, do remove this parameter.
 
-The secondary script (analysis_Greengenes) is the script for analysing the data output from Greengenes_open_OTU. The analyses can be picked and run independently. DO NOT RUN THE ENTIRE ANALYSIS SCRIPT. The file paths will be off, and an error will be returned. 
+The secondary script (analysis_Greengenes) is the script for analysing the data output from Greengenes_open_OTU. The analyses can be picked and run independently in the bash shell. DO NOT RUN THE ENTIRE ANALYSIS SCRIPT. The file paths will be off, and an error will be returned. 
 
 **SILVA**
 
@@ -28,6 +27,9 @@ The first (SILVA_open_OTU) processes and then assigns taxonomies to the OTUs. Th
 
 The secondary script (analysis_SILVA) is the script for analysing the data output from SILVA_open_OTU. The analyses can be picked and run independently. DO NOT RUN THE ENTIRE ANALYSIS SCRIPT. The file paths will be off, and an error will be returned. 
 
+## Mapping file
+
+An example mapping file cna be found [here](https://docs.google.com/spreadsheets/d/1crHkjeUj1hfKZ5NhGzcB75cB8p0CME2SNuo0kaUDmNg/edit#gid=0). The file must contain atleast a sample ID and a barcode sequence for identificatin of the Illumina reads.
 
 ## Contributors
 
